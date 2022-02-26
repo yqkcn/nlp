@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 numpy = "*"
+pandas = "*"
+nltk = "*"
+vadersentiment = "*"
 
 [dev-packages]
 
