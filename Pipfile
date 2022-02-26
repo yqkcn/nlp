@@ -8,6 +8,8 @@ numpy = "*"
 pandas = "*"
 nltk = "*"
 vadersentiment = "*"
+nlpia = "*"
+sklearn = "*"
 
 [dev-packages]
 
