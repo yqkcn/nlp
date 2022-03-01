@@ -10,6 +10,7 @@ nltk = "*"
 vadersentiment = "*"
 nlpia = "*"
 sklearn = "*"
+scipy = "*"
 
 [dev-packages]
 
