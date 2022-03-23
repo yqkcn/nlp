@@ -1,7 +1,6 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://mirrors.cloud.tencent.com/pypi/simple"
 verify_ssl = true
-name = "pypi"
 
 [packages]
 numpy = "*"
@@ -11,6 +10,7 @@ vadersentiment = "*"
 nlpia = "*"
 sklearn = "*"
 scipy = "*"
+keras = "*"
 
 [dev-packages]
 
