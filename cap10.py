@@ -7,7 +7,7 @@ output_vocabulary = set()
 start_token = "\t"
 stop_token = "\n"
 max_training_samples = min(25000, len(df) - 1)
-for input_text, target_text in zip(df.statement, df.replay):
+for input_text, target_text in zip(df.statement, df.reply):
     target_text = start_token + target_text + stop_token
     input_texts.append(input_text)
     target_texts.append(target_text)
@@ -34,9 +34,9 @@ encoder_input_data = np.zeros((len(input_texts), max_encoder_seq_length, input_v
 decoder_input_data = np.zeros((len(input_texts), max_decoder_seq_length, output_vocab_size), dtype="float32")
 decoder_target_data = np.zeros((len(input_texts), max_decoder_seq_length, output_vocab_size), dtype="float32")
 for i, (input_text, target_text) in enumerate(zip(input_texts, target_texts)):
-    for t, char in enumerate(input_texts):
+    for t, char in enumerate(input_text):
         encoder_input_data[i, t, input_token_index[char]] = 1.
-    for t, char in enumerate(target_texts):
+    for t, char in enumerate(target_text):
         decoder_input_data[i, t, target_token_index[char]] = 1.
         if t > 0:
             decoder_target_data[i, t - 1, target_token_index[char]] = 1
@@ -96,3 +96,5 @@ def response(input_text):
         input_seq[0, t, input_token_index[char]] = 1.
     decoded_sentence = decode_sequence(input_seq)
     print("Bot Reply (Decoded sentence): ", decoded_sentence)
+
+print(response("what is ht internet"))
